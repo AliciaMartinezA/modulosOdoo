@@ -1,60 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
-
-    <record model="ir.ui.view" id="mega_market.list">
-      <field name="name">MegaMarket list</field>
-      <field name="model">mega_market.mega_market</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
+    <!-- Vista de formulario para el modelo electrodomestico -->
+    <record id="view_mega_market_electrodomestico_form" model="ir.ui.view">
+        <field name="name">mega.market.electrodomestico.form</field>
+        <field name="model">mega_market.electrodomestico</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="codigo_producto"/>
+                        <field name="pais_id"/>
+                        <field name="importe_compra"/>
+                        <field name="moneda_id"/>
+                        <field name="precio_venta"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
     </record>
 
-
-    <!-- actions opening views on models -->
-
-    <record model="ir.actions.act_window" id="mega_market.action_window">
-      <field name="name">MegaMarket window</field>
-      <field name="res_model">mega_market.mega_market</field>
-      <field name="view_mode">tree,form</field>
+    <!-- Vista de formulario para el modelo cliente -->
+    <record id="view_mega_market_cliente_form" model="ir.ui.view">
+        <field name="name">mega.market.cliente.form</field>
+        <field name="model">mega_market.cliente</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="apellidos"/>
+                        <field name="nif"/>
+                        <field name="direccion"/>
+                        <field name="fecha_nacimiento"/>
+                        <field name="telefono"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
     </record>
 
-
-    <!-- server action to the one above -->
-
-    <record model="ir.actions.server" id="mega_market.action_server">
-      <field name="name">MegaMarket server</field>
-      <field name="model_id" ref="model_mega_market_mega_market"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
+    <!-- Acciones -->
+    
+    <record id="action_mega_market_electrodomestico" model="ir.actions.act_window">
+        <field name="name">Electrodomésticos</field>
+        <field name="res_model">mega_market.electrodomestico</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="action_mega_market_cliente" model="ir.actions.act_window">
+        <field name="name">Clientes</field>
+        <field name="res_model">mega_market.cliente</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
-    <!-- Top menu item -->
+    <!-- Menu principal -->
+    <menuitem id="menu_mega_market_root" name="MegaMarket"/>
 
-    <menuitem name="MegaMarket" id="mega_market.menu_root"/>
+    <!-- Submenu para electrodomesticos -->
+    <menuitem id="menu_mega_market_electrodomesticos" name="Electrodomésticos" parent="menu_mega_market_root" action="action_mega_market_electrodomestico"/>
 
-    <!-- menu categories -->
-
-    <menuitem name="Menu 1" id="mega_market.menu_1" parent="mega_market.menu_root"/>
-    <menuitem name="Menu 2" id="mega_market.menu_2" parent="mega_market.menu_root"/>
-
-    <!-- actions -->
-
-    <menuitem name="List" id="mega_market.menu_1_list" parent="mega_market.menu_1"
-              action="mega_market.action_window"/>
-    <menuitem name="Server to list" id="mega_market" parent="mega_market.menu_2"
-              action="mega_market.action_server"/>
-
-  </data>
+    <!-- Submenu para clientes -->
+    <menuitem id="menu_mega_market_clientes" name="Clientes" parent="menu_mega_market_root" action="action_mega_market_cliente"/>
 </odoo>

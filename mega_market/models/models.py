@@ -8,7 +8,7 @@ class MegaMarketElectrodomestico(models.Model):
 
     name = fields.Char('Nombre')
     codigo_producto = fields.Char('Código de Producto')
-    pais_id = fields.Many2one('res.country', 'País', required=True)
+    pais_id = fields.Many2one('res.country', 'Nacionalidad', required=True)
     importe_compra = fields.Float('Importe de Compra')
     moneda_id = fields.Many2one('res.currency', 'Moneda de Compra', required=True)
     precio_venta = fields.Float('Precio de Venta')
