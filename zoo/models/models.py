@@ -3,8 +3,6 @@
 from odoo import models, fields, api
 
 
-from odoo import models, fields
-
 class Animal(models.Model):
     _name = 'zoo.animal'
     _description = 'Animal del Zoológico'
