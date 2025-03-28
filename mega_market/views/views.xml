@@ -1,7 +1,7 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-<!--
+
     <record model="ir.ui.view" id="mega_market.list">
       <field name="name">MegaMarket list</field>
       <field name="model">mega_market.mega_market</field>
@@ -13,19 +13,19 @@
         </tree>
       </field>
     </record>
--->
+
 
     <!-- actions opening views on models -->
-<!--
+
     <record model="ir.actions.act_window" id="mega_market.action_window">
       <field name="name">MegaMarket window</field>
       <field name="res_model">mega_market.mega_market</field>
       <field name="view_mode">tree,form</field>
     </record>
--->
+
 
     <!-- server action to the one above -->
-<!--
+
     <record model="ir.actions.server" id="mega_market.action_server">
       <field name="name">MegaMarket server</field>
       <field name="model_id" ref="model_mega_market_mega_market"/>
@@ -38,23 +38,23 @@
         }
       </field>
     </record>
--->
+
 
     <!-- Top menu item -->
-<!--
+
     <menuitem name="MegaMarket" id="mega_market.menu_root"/>
--->
+
     <!-- menu categories -->
-<!--
+
     <menuitem name="Menu 1" id="mega_market.menu_1" parent="mega_market.menu_root"/>
     <menuitem name="Menu 2" id="mega_market.menu_2" parent="mega_market.menu_root"/>
--->
+
     <!-- actions -->
-<!--
+
     <menuitem name="List" id="mega_market.menu_1_list" parent="mega_market.menu_1"
               action="mega_market.action_window"/>
     <menuitem name="Server to list" id="mega_market" parent="mega_market.menu_2"
               action="mega_market.action_server"/>
--->
+
   </data>
 </odoo>
